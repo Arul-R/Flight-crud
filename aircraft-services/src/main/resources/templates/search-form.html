@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Products</title>
+</head>
+<body>
+<h2>Search Products</h2>
+<form action="/search" method="get">
+    <label>Source:</label>
+    <input type="text" name="name">
+
+    <label>Destination:</label>
+    <input type="text" name="category">
+
+    <label>Date:</label>
+    <input type="date" name="date">
+
+    <button type="submit">Search</button>
+</form>
+</body>
+</html>
