@@ -1,0 +1,12 @@
+INSERT INTO flights ( airline, source, source_name, destination, destination_name, departure_date_time, arrival_date_time, DURATION_HOURS , stopovers, aircraft_type, CLASS_TYPE , booking_source, base_fare_bdt, TAX_AND_SURCHARGE_BDT, total_fare_bdt, seasonality ) SELECT airline, source, source_name, destination, destination_name, CASE WHEN LENGTH(departure_date_time) = 16 THEN PARSEDATETIME(departure_date_time, 'dd-MM-yyyy HH:mm') WHEN LENGTH(departure_date_time) = 10 THEN PARSEDATETIME(CONCAT(departure_date_time, ' 00:00'), 'yyyy-MM-dd HH:mm') ELSE NULL END AS departure_date_time, CASE WHEN LENGTH(arrival_date_time) = 16 THEN PARSEDATETIME(arrival_date_time, 'dd-MM-yyyy HH:mm') WHEN LENGTH(arrival_date_time) = 10 THEN PARSEDATETIME(CONCAT(arrival_date_time, ' 00:00'), 'yyyy-MM-dd HH:mm') ELSE NULL END AS arrival_date_time, duration, stopovers, aircraft_type, class, booking_source, base_fare_bdt, TAX_AND_SURCHARGE_BDT, total_fare_bdt, seasonality FROM CSVREAD('C:\Users\294168\Desktop\aircraft-services\src\main\resources\flights.csv');
+
+
+
+
+
+
+
+
+test get
+
+http://localhost:8080/flights/find/RJH/DAC/2025-05-05
